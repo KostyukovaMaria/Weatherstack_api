@@ -1,8 +1,8 @@
-"""Методы для проверки запросов"""
+
 import json
 
-
-class Cheking():
+"""Методы для проверки запросов"""
+class Checking():
 
     """Метод для проверки статуса-кода"""
     @staticmethod
@@ -13,7 +13,7 @@ class Cheking():
 
     """Метод для проверки наличия полей в ответе запроса"""
     @staticmethod
-    def check_json_token(result, expected_value):
+    def checking_for_fields(result, expected_value):
         field = json.loads(result.text)
         assert list(field) == expected_value, 'ОШИБКА, Список полей не совпадает'
         print(list(field))
@@ -22,7 +22,7 @@ class Cheking():
 
     """Метод для проверки значения обязательных полей в ответе запроса"""
     @staticmethod
-    def check_json_value(result, field_name_1, field_name_2, expected_value):
+    def checking_field_values(result, field_name_1, field_name_2, expected_value):
         check = result.json()
         check_for_info = check.get(field_name_1)
         check_info = check_for_info.get(field_name_2)
