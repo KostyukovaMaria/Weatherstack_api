@@ -1,35 +1,31 @@
-from utils.http_metods import Http_methods
+
+import random
+from utils.http_metods import HttpMethods
+from utils.consts import base_url, key, all_query, get_resource, units_degrees, units_fahrenheit
+
 """Методы для тестирования Weatherstack"""
+query = random.choice(all_query)
+class WeatherstackApi():
 
-
-base_url = 'http://api.weatherstack.com' # Базовая URL
-key = '?access_key=7a5af1a98d34e05c9740f43f7b068d01' #параметр  для всех запросов
-query = 'Kaliningrad'     # местоположение для определения погоды(данный параметр можно менять)
-
-class Weatherstack_api():
 
     """Метод для получения данных о погоде в режиме реального времени для указанных мест в градусах"""
     @staticmethod
-    def get_weather_m():
-        get_resource = '/current'      # ресурс для получения данных о погоде в режиме реального времени
-        units_m = 'm'  # единицы измерения в градусах цельсия
-        get_url = base_url + get_resource + key + '&query=' + query + '&units=' + units_m
+    def get_weather_degrees():
+        get_url = base_url + get_resource + key + '&query=' + query + '&units=' + units_degrees
         print(get_url)
-        result_get = Http_methods.get(get_url)
+        result_get = HttpMethods.get(get_url)
         print(result_get.text)
         return result_get
 
     """Метод для получения данных о погоде в режиме реального времени для указанных мест в фаренгейтах"""
-
     @staticmethod
-    def get_weather_f():
-        get_resource = '/current'  # ресурс для получения данных о погоде в режиме реального времени
-        units_f = 'f'  # единицы измерения в фаренгейтах
-        get_url = base_url + get_resource + key + '&query=' + query + '&units=' + units_f
+    def get_weather_fahrenheit():
+        get_url = base_url + get_resource + key + '&query=' + query + '&units=' + units_fahrenheit
         print(get_url)
-        result_get = Http_methods.get(get_url)
+        result_get = HttpMethods.get(get_url)
         print(result_get.text)
         return result_get
+
 
 
 
