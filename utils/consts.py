@@ -8,4 +8,5 @@ get_resource = '/current'      # ресурс для получения данн
 units_degrees = 'm'  # единицы измерения в градусах цельсия
 units_fahrenheit = 'f'  # единицы измерения в фаренгейтах
 upper_limit = 15
+expected_format = '%Y-%m-%d %H:%M'
 

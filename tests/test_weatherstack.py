@@ -1,13 +1,16 @@
 
 import time
+import allure
 from utils.api import query
 from utils.api import WeatherstackApi
 from utils.checking import Checking
 from utils.checking_date import CheckingDate
 from utils.checking_temperature import CheckingTemrerature
 
+@allure.epic("Test get weather")
 class TestGetWeather():
     """Получения данных о погоде в режиме реального времени в градусах """
+    @allure.description("Getting weather data for a random city in different units of measurement")
     def test_get_weather(self):
 
         print("Meтод GET в градусах")
