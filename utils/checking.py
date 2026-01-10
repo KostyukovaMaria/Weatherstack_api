@@ -23,23 +23,25 @@ class Checking():
     """Метод для проверки значения обязательных полей в ответе запроса"""
     @staticmethod
     def checking_field_values(result, field_name_1, field_name_2, expected_value):
-        check = result.json()
-        check_for_info = check.get(field_name_1)
-        check_info = check_for_info.get(field_name_2)
-        assert check_info == expected_value
-        print(check_info)
+        result_json = result.json()
+        fild_value = result_json.get(field_name_1).get(field_name_2)
+        assert fild_value == expected_value
+        print(fild_value)
         print(f"{field_name_2} верно!")
 
 
     @staticmethod
-    def comparing_values_two_fields(result_m, result_f, field_name):
+    def comparing_values_two_fields(result_degrees, result_fahrenheit, field_name):
         """Метод для сравнения значений обязательных полей в ответах двух запросов"""
-        check_m = result_m.json()
-        check_info_m = check_m.get(field_name)
-        check_f = result_f.json()
-        check_info_f = check_f.get(field_name)
-        assert check_info_m == check_info_f, "Ошибка, значение поля в запросах разное"
+        result_json_degrees = result_degrees.json()
+        fild_value_degrees = result_json_degrees.get(field_name)
+        result_json_fahrenheit = result_fahrenheit.json()
+        fild_value_fahrenheit = result_json_fahrenheit.get(field_name)
+        assert fild_value_degrees == fild_value_fahrenheit, "Ошибка, значение поля в запросах разное"
         print(f"Значения поля {field_name} в обоих запросах одинаковы")
+
+
+
 
 
 
