@@ -16,7 +16,8 @@ class CheckingDate():
         delta = abs(value_date_datetime - today_date)  # модуль разности дат из API и фактической
         interval_comparison = today_date - (today_date - timedelta(minutes=upper_limit))  # переменная для сравнения равная 15 минутам
         assert delta < interval_comparison, "Ошибка, дата + время некорректно"
-        print("Проверка времени прошла успешно")
+        print("Значение даты корректно")
+
 
     @staticmethod
     def check_format_datetime(result, field_name_1, field_name_2):
@@ -26,14 +27,7 @@ class CheckingDate():
         date_obj = datetime.strptime(value_date, expected_format)
         formated_date_obj = date_obj.strftime(expected_format) # преобразование обратно в строку
         assert value_date == formated_date_obj, 'ОШИБКА, Неверный формат даты'
-        print("Формат даты корректен")
-
-
-
-
-
-
-
+        print("Формат даты корректный")
 
 
 

@@ -1,7 +1,6 @@
 
 import datetime
 import os
-
 from requests import Response
 
 
@@ -37,3 +36,4 @@ class Logger():
         data_to_add += f"\n-----\n"
 
         cls.write_log_to_file(data_to_add)
+
